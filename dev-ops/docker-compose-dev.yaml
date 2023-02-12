@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ..
+      dockerfile: dev-ops/Dockerfile-frontend-dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: ..
+      dockerfile: dev-ops/Dockerfile-backend-dev
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: example
+      POSTGRES_DB: ecommerce_cart
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data:rw
+ 

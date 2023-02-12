@@ -1,0 +1,16 @@
+FROM node:19.6-slim
+
+RUN mkdir -p /app
+
+WORKDIR /app
+
+ADD frontend/package.json /app
+
+RUN yarn install
+
+ADD frontend/public /app/public
+ADD frontend/src /app/src
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
