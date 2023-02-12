@@ -9,7 +9,9 @@
     & make start-dev
 
 API will be on http://0.0.0.0:8000/api/
+
 Frontend login at http://0.0.0.0:3000/
+
 PostgreSQL will be on
 
 ## Caveats
