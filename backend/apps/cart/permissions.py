@@ -17,5 +17,4 @@ class IsCartItemOwner(BasePermission):
         return is_owner
 
     def has_object_permission(self, request, view, obj):
-        print(obj, request)
         return obj.cart.customer == request.user
